@@ -1,0 +1,41 @@
+[
+	{
+		"carnivore": "lion"
+	},
+
+	{
+		"carnivore": "polar bear"
+	},
+
+	{
+		"carnivore": "dolphin"
+	},
+
+	{					
+		"carnivore": "snake"
+	},
+	
+	{
+		"carnivore": "tiger"
+	},
+
+	{
+		"carnivore": "penguin"
+	},
+	
+	{
+		"carnivore": "monitor lizard"
+	},
+
+	{
+		"carnivore": "shark"
+	},
+
+	{
+		"carnivore": "squid"
+	},
+
+	{
+		"carnivore": "ferret"
+	},
+]

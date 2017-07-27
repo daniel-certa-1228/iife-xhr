@@ -4,7 +4,7 @@ console.log( "iife-xhr.js" );
   
 // }
 
-// function showHerbivores () {
+// function showHerbivores (hervivores) {
 
 // }
 

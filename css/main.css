@@ -2,3 +2,12 @@ body {
 	background-color: lightsteelblue;
 	font-family: sans-serif;
 }
+
+#carnivoreDiv {
+	float: left;
+}
+
+#herbivoreDiv {
+	float: right;
+	margin-right: 10%;
+}

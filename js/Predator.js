@@ -1,21 +1,19 @@
 console.log( "Predator.js" );
 
 var Predator = (function () {
-   let carnivoresObjects = [];
-   let herbivoresObjects = [];
-   
-   let carnivores = [];
-   let herbivores = [];
 
   return {
 
   		loadCarnivores: (callbackFunction) => {
+
 		let carnivoreLoader = new XMLHttpRequest();
 		carnivoreLoader.addEventListener("load", carnivoreLoadComplete);
 		carnivoreLoader.addEventListener("error", carnivoreLoadFailed);
 
 		function carnivoreLoadComplete(event) {
-			
+			let carnivoresObjects = [];
+  			let carnivores = [];
+				
 				console.log( "carnivores have loaded" );
 				carnivoresObjects = JSON.parse(event.target.responseText);
 				// console.log( "carnivoresObjects", carnivoresObjects );
@@ -23,11 +21,10 @@ var Predator = (function () {
 				for (let i = 0; i < carnivoresObjects.length; i++) {
 					let meatEater = carnivoresObjects[i].carnivore;
 					carnivores.push(meatEater);
-					
 				};
+				// console.log( "carnivores", carnivores );
+				showCarnivores(carnivores);
 
-				console.log( "carnivores", carnivores );
-				
 		}
 
 		function carnivoreLoadFailed(event) {
@@ -47,6 +44,8 @@ var Predator = (function () {
 		herbivoreLoader.addEventListener("error", herbivoreLoadFailed);
 
 		function herbivoreLoadComplete(event) {
+			let herbivoresObjects = [];
+   			let herbivores = [];
 
 			console.log( "herbivores have loaded");
 			herbivoresObjects = JSON.parse(event.target.responseText);
@@ -57,7 +56,8 @@ var Predator = (function () {
 					
 				};
 
-			console.log( "herbivores", herbivores );
+			// console.log( "herbivores", herbivores );
+			showHerbivores(herbivores);
 			
 		}
 
@@ -68,7 +68,6 @@ var Predator = (function () {
 		herbivoreLoader.send();
 		}
 	}
-
  })();
 
 

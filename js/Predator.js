@@ -2,10 +2,12 @@ console.log( "Predator.js" );
 
 {
 	var Predator = {};
+	let carnivoresObjects = [];
+	let herbivoresObjects = [];
 	let carnivores = [];
 	let herbivores = [];
 
-	Predator.loadCarnivores = (callbackToInvoke) => {
+	Predator.loadCarnivores = (callbackFunction) => {
 		let carnivoreLoader = new XMLHttpRequest();
 		carnivoreLoader.addEventListener("load", carnivoreLoadComplete);
 		carnivoreLoader.addEventListener("error", carnivoreLoadFailed);
@@ -13,7 +15,15 @@ console.log( "Predator.js" );
 		function carnivoreLoadComplete(event) {
 			
 				console.log( "carnivores have loaded" );
-				carnivores = JSON.parse(event.target.responseText);
+				carnivoresObjects = JSON.parse(event.target.responseText);
+				// console.log( "carnivoresObjects", carnivoresObjects );
+
+				for (let i = 0; i < carnivoresObjects.length; i++) {
+					let meatEater = carnivoresObjects[i].carnivore;
+					carnivores.push(meatEater);
+					
+				};
+
 				console.log( "carnivores", carnivores );
 				return carnivores;
 		}
@@ -26,7 +36,7 @@ console.log( "Predator.js" );
 		carnivoreLoader.send();
 	}
 
-	Predator.loadHerbivores = (callbackToInvoke) => {
+	Predator.loadHerbivores = (callbackFunction) => {
 		let herbivoreLoader = new XMLHttpRequest();
 		herbivoreLoader.addEventListener("load", herbivoreLoadComplete);
 		herbivoreLoader.addEventListener("error", herbivoreLoadFailed);
@@ -34,7 +44,14 @@ console.log( "Predator.js" );
 		function herbivoreLoadComplete(event) {
 
 			console.log( "herbivores have loaded");
-			herbivores = JSON.parse(event.target.responseText);
+			herbivoresObjects = JSON.parse(event.target.responseText);
+
+				for (let i = 0; i < herbivoresObjects.length; i++) {
+					let plantEater = herbivoresObjects[i].herbivore;
+					herbivores.push(plantEater);
+					
+				};
+
 			console.log( "herbivores", herbivores );
 			return herbivores;
 		}
@@ -48,11 +65,24 @@ console.log( "Predator.js" );
 
 }
 
-Predator.loadCarnivores();
 Predator.loadHerbivores();
+Predator.loadCarnivores();
 
 
+// {
+// 	Predator.showCarnivors = (carnivores) => {
+// 		for (let i = 0; i < carnivores.length; i++) {
+// 			console.log( "carnivores", carnivores[i] );
+// 		};
+// 	}
 
+// 	Predator.showHerbivores = (herbivores) => {
+// 		for (let i = 0; i < herbivores.length; i++) {
+// 			console.log( "herbivores", herbivores[i] );
+// 		};
+// 	}
+
+// }
 
 
 
